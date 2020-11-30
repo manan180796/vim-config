@@ -18,3 +18,21 @@ inoremap <C-S-D> <Esc>yyp<CR>==gi
 
 "NerdTree
 nnoremap <C-e> :NERDTreeToggle<CR>
+
+"NERDTree
+nnoremap <C-r> :TagbarToggle<CR>
+
+"Set current directory as working directory
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | wincmd p | ene | exe 'NERDTree' argv()[0] | endif
+
+"Indent guides
+let g:indentLine_char = '│'
+
+"Tab properties
+:set tabstop=4
+:set shiftwidth=4
+:set expandtab
+
+"Splits
+:set fillchars+=vert:│

@@ -1,2 +1,6 @@
 Plug 'preservim/nerdcommenter'
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree' | Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
+Plug 'preservim/tagbar'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
