@@ -19,7 +19,7 @@ inoremap <C-S-D> <Esc>yyp<CR>==gi
 "NerdTree
 nnoremap <C-e> :NERDTreeToggle<CR>
 
-"NERDTree
+"Tagbar
 nnoremap <C-r> :TagbarToggle<CR>
 
 "Set current directory as working directory
