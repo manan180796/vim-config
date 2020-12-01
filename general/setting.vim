@@ -30,12 +30,15 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 let g:indentLine_char = '│'
 
 "Tab properties
-:set tabstop=4
-:set shiftwidth=4
-:set expandtab
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 "Splits
-:set fillchars+=vert:│
+set fillchars+=vert:│
 
 "Beautifier
 nnoremap <F3> :Autoformat<CR>
+
+"Mouse
+set mouse=a
