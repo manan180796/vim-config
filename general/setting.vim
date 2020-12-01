@@ -36,3 +36,6 @@ let g:indentLine_char = '│'
 
 "Splits
 :set fillchars+=vert:│
+
+"Beautifier
+nnoremap <F3> :Autoformat<CR>
