@@ -14,7 +14,7 @@ set number
 set noshowmode
 
 let g:lightline = {
-            \   'colorscheme': 'wombat',
+            "\   'colorscheme': 'wombat',
             \   'active': {
             \       'left': [
             \           [ 'mode', 'paste' ],
