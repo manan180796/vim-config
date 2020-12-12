@@ -42,3 +42,6 @@ nnoremap <F3> :Autoformat<CR>
 
 "Mouse
 set mouse=a
+
+"do not wrap lines
+set nowrap
