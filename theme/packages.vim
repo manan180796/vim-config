@@ -7,4 +7,4 @@
 "Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+"Plug 'mengelbrecht/lightline-bufferline'

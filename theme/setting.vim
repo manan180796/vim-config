@@ -5,22 +5,18 @@
 "colorscheme dracula
 "colorscheme_bg = "dark
 "let g:molokai_original = 1
-syntax enable
 autocmd vimenter * ++nested colorscheme gruvbox
 let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'medium'
+let g:gruvbox_contrast_dark = 'hard'
 set cursorline
 set number
 set noshowmode
+set termguicolors
+syntax enable
 
 let g:lightline = {
             "\   'colorscheme': 'wombat',
             \   'active': {
-            \       'left': [
-            \           [ 'mode', 'paste' ],
-            "\           [ 'readonly', 'filename', 'modified' ],
-            \           [ 'buffers' ]
-            \       ],
             \       'right': [
             \           [ 'lineinfo' ],
             \           [ 'percent' ],
@@ -28,17 +24,8 @@ let g:lightline = {
             \           [ 'fileformat', 'fileencoding', 'filetype' ]
             \       ]
             \   },
-            \   'tabline': {
-            \       'left':[['buffers']]
-            \   },
             \   'component_function': {
             \       'conda':'CondaEnv'
-            \   },
-            \   'component_expand': {
-            \       'buffers': 'lightline#bufferline#buffers'
-            \   },
-            \   'component_type': {
-            \       'buffers': 'tabsel'
             \   }
             \ }
 
@@ -55,3 +42,5 @@ augroup BgHighlight
     autocmd WinEnter * set cul
     autocmd WinLeave * set nocul
 augroup END
+
+set laststatus=2
