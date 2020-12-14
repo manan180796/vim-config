@@ -1,106 +1,56 @@
-autocmd CursorHold * silent call CocActionAsync('highlight')
+"let g:coc_global_extensions = ['coc-js:on', 'coc-git']
 
-"CocUnderline						*CocUnderline*
-"The highlight for undefined text.
-hi default CocUnderline cterm=underline gui=underline
+autocmd CursorMoved * silent call CocActionAsync('highlight')
 
+function! MyCocHighlight() abort
+    highlight! link CocHighlightText PMenuSBar
+    "highlight CocHighlightText        ctermfg=231 ctermbg=161 guibg=#68615d
+    
+    highlight CocUnderline cterm=underline gui=underline
+    highlight CocItalic term=italic cterm=italic gui=italic
+    highlight CocBold term=bold cterm=bold gui=bold
+    
+    "highlight CocMarkdownLink ctermfg=Blue guifg=#15aabf guibg=NONE
+    
+    highlight! link CocErrorHighlight CocUnderline
+    highlight! link CocMarkdownCode markdownCode
+    highlight! link CocMarkdownHeader markdownH1
+    highlight! link CocErrorVirtualText  CocErrorSign
+    highlight! link CocWarningVirtualText CocWarningSign
+    highlight! link CocInfoVirtualText CocInfoSign
+    highlight! link CocHintVirtualText CocHintSign
+    highlight! link CocWarningHighlight   CocUnderline
+    highlight! link CocInfoHighlight   CocUnderline
+    highlight! link CocHintHighlight   CocUnderline
+    "highlight link CursorColumn
+    highlight! link CocHighlightRead  CocHighlightText
+    highlight! link CocHighlightWrite  CocHighlightText
+endfunction
 
-"CocBold							*CocBold*
-"The highlight for bold text.
-hi default CocBold term=bold cterm=bold gui=bold
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme * call MyCocHighlight()
+augroup END
 
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
-"CocItalic						*CocItalic*
-"The highlight for italic text.
-hi default CocItalic term=italic cterm=italic gui=italic
+" Use K to show documentation in preview window.
+nnoremap <silent> <F7> :call <SID>show_documentation()<CR>
+nnoremap <silent> <F2> :CocCommand document.renameCurrentWord<CR>
 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
-"CocMarkdownCode						*CocMarkdownCode*
-"The highlight for markdown code in floating window/popup.
-hi default link CocMarkdownCode     markdownCode
-
-
-"CocMarkdownHeader					*CocMarkdownHeader*
-"The highlight for markdown header in floating window/popup.
-hi default link CocMarkdownHeader   markdownH1
-
-
-"CocMarkdownLink						*CocMarkdownLink*
-"The highlight for markdown link text in floating window/popup.
-hi default CocMarkdownLink ctermfg=Blue guifg=#15aabf guibg=NONE
-
-
-"CocErrorSign						*CocErrorSign*
-"The highlight used for error signs.
-hi CocErrorSign  ctermfg=Red guifg=#ff0000
-
-
-"CocWarningSign						*CocWarningSign*
-"The highlight used for warning signs.
-hi CocWarningSign  ctermfg=Brown guifg=#ff922b
-
-
-"CocInfoSign						*CocInfoSign*
-"The highlight used for information signs.
-hi CocInfoSign  ctermfg=Yellow guifg=#fab005
-
-
-"CocHintSign						*CocHintSign*
-"The highlight used for hint signs.
-hi CocHintSign  ctermfg=Blue guifg=#15aabf
-
-
-"CocErrorVirtualText					*CocErrorVirtualText*
-"The highlight used for error signs.
-hi default link CocErrorVirtualText  CocErrorSign
-
-
-"CocWarningVirtualText					*CocWarningVirtualText*
-"The highlight used for warning signs.
-hi default link CocWarningVirtualText CocWarningSign
-
-
-"CocInfoVirtualText					*CocInfoVirtualText*
-"The highlight used for information signs.
-hi default link CocInfoVirtualText CocInfoSign
-
-
-"CocHintVirtualText					*CocHintVirtualText*
-"The highlight used for hint signs.
-hi default link CocHintVirtualText CocHintSign
-
-
-"CocErrorHighlight					*CocErrorHighlight*
-"The highlight used for error text.
-hi default link CocErrorHighlight   CocUnderline
-
-
-"CocWarningHighlight					*CocWarningHighlight*
-"The highlight used for warning text.
-hi default link CocWarningHighlight   CocUnderline
-
-
-"CocInfoHighlight					*CocInfoHighlight*
-"The highlight used for information text.
-hi default link CocInfoHighlight   CocUnderline
-
-
-"CocHintHighlight					*CocHintHighlight*
-"The highlight used for hint text.
-hi default link CocHintHighlight   CocUnderline
-
-
-"CocHighlightText					*CocHighlightText*
-"The highlight used for document highlight feature. Normally used for
-"highlighting same symbols in the buffer at the current cursor position.
-"hi default link CursorColumn
-
-
-"CocHighlightRead					*CocHighlightRead*
-"Highlight for Read` kind of document symbol.
-hi default link CocHighlightRead  CocHighlightText
-
-
-"CocHighlightWrite					*CocHighlightWrite*
-"Highlight for Write` kind of document symbol.
-hi default link CocHighlightWrite  CocHighlightText
+source language/python/setting.vim
