@@ -50,3 +50,6 @@ set mouse=a
 
 "do not wrap lines
 set nowrap
+
+"press return to temporarily get out of the highlighted search. 
+nnoremap <CR> :nohlsearch<CR><CR>
