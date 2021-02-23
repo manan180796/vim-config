@@ -53,3 +53,32 @@ set nowrap
 
 "press return to temporarily get out of the highlighted search. 
 nnoremap <CR> :nohlsearch<CR><CR>
+
+"To use `ALT+{h,j,k,l}` to navigate windows from any mode:
+tnoremap <A-h> <C-\><C-N><C-w>h
+tnoremap <A-j> <C-\><C-N><C-w>j
+tnoremap <A-k> <C-\><C-N><C-w>k
+tnoremap <A-l> <C-\><C-N><C-w>l
+inoremap <A-h> <C-\><C-N><C-w>h
+inoremap <A-j> <C-\><C-N><C-w>j
+inoremap <A-k> <C-\><C-N><C-w>k
+inoremap <A-l> <C-\><C-N><C-w>l
+nnoremap <A-h> <C-w>h
+nnoremap <A-j> <C-w>j
+nnoremap <A-k> <C-w>k
+nnoremap <A-l> <C-w>l
+
+
+tnoremap <A-Up> <C-\><C-N><C-w><Up>
+inoremap <A-Up> <C-\><C-N><C-w><Up>
+nnoremap <A-Up> <C-w><Up>
+tnoremap <A-Down> <C-\><C-N><C-w><Down>
+inoremap <A-Down> <C-\><C-N><C-w><Down>
+nnoremap <A-Down> <C-w><Down>
+tnoremap <A-Left> <C-\><C-N><C-w><Left>
+inoremap <A-Left> <C-\><C-N><C-w><Left>
+nnoremap <A-Left> <C-w><Left>
+tnoremap <A-Right> <C-\><C-N><C-w><Right>
+inoremap <A-Right> <C-\><C-N><C-w><Right>
+nnoremap <A-Right> <C-w><Right>
+
