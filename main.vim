@@ -6,6 +6,7 @@
 " Specify a directory for plugins
 " - For Neovim: stdpath('data') . '/plugged'
 " - Avoid using standard Vim directory names like 'plugin'
+let g:python3_host_prog = '$HOME/miniconda3/envs/nvim/bin/python'
 if has('nvim')
     let home=stdpath('data') . '/plugged'
 else
